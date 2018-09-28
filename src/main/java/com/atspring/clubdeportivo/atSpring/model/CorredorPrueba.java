@@ -48,4 +48,6 @@ public class CorredorPrueba {
 	@JoinColumn(name = "fk_prueba")
 	private Prueba prueba;
 	
+	private Integer segundos;
+	
 }
