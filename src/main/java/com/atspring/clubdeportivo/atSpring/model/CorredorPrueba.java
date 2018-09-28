@@ -1,5 +1,14 @@
 package com.atspring.clubdeportivo.atSpring.model;
 
-public class CorredorPrueba {
+import javax.persistence.Entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Entity
+@Getter
+@Setter
+public class CorredorPrueba {
+	
+	
 }
