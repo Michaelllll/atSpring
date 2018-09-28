@@ -1,2 +1,2 @@
 # atSpring
-Curso formación en Spring
+Curso formación en Spring, septiembre 2018
