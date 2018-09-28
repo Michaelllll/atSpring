@@ -41,11 +41,11 @@ public class CorredorPrueba {
 	private IdCorredorPrueba idCorredorPrueba;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "fk_corredor", insertable = false, updatable = false)
+	@JoinColumn(name = "fk_corredor")
 	private Corredor corredor;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "fk_prueba", insertable = false, updatable = false)
+	@JoinColumn(name = "fk_prueba")
 	private Prueba prueba;
 	
 }
