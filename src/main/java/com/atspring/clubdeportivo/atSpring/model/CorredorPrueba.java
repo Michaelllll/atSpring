@@ -19,6 +19,8 @@ import lombok.Setter;
 public class CorredorPrueba {
 	
 	@Embeddable
+	@Getter
+	@Setter
 	public static class IdCorredorPrueba implements Serializable {
 
 		private static final long serialVersionUID = 817540279106537232L;
