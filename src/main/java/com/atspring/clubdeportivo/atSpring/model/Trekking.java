@@ -1,5 +1,5 @@
 package com.atspring.clubdeportivo.atSpring.model;
 
-public class Trekking {
+public class Trekking extends Prueba{
 
 }
