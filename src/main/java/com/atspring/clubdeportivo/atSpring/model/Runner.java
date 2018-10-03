@@ -44,4 +44,54 @@ public class Runner {
 	@OneToMany(fetch = FetchType.LAZY, mappedBy="runner")
 	private List<RunnerCompetition> pruebas = new ArrayList<>();
 
+	public Integer getIdRunner() {
+		return idRunner;
+	}
+
+	public void setIdRunner(Integer idRunner) {
+		this.idRunner = idRunner;
+	}
+
+	public Date getBirthDate() {
+		return birthDate;
+	}
+
+	public void setBirthDate(Date birthDate) {
+		this.birthDate = birthDate;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Integer getNumber() {
+		return number;
+	}
+
+	public void setNumber(Integer number) {
+		this.number = number;
+	}
+
+	public Club getClub() {
+		return club;
+	}
+
+	public void setClub(Club club) {
+		this.club = club;
+	}
+
+	public List<RunnerCompetition> getPruebas() {
+		return pruebas;
+	}
+
+	public void setPruebas(List<RunnerCompetition> pruebas) {
+		this.pruebas = pruebas;
+	}
+	
+	
+
 }
