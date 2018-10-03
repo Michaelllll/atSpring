@@ -19,20 +19,20 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Prueba {
+public class Competition {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer idPrueba;
+	private Integer idCompetition;
 	
-	private String nombre;
+	private String name;
 	
-	private double distancia;
+	private double distance;
 	
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date fecha;
+	private Date date;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy="prueba")
-	private List<CorredorPrueba> corredores = new ArrayList<>();
+	@OneToMany(fetch = FetchType.LAZY, mappedBy="competition")
+	private List<RunnerCompetition> runners = new ArrayList<>();
 
 }

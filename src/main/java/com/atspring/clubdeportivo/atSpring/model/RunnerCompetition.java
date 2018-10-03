@@ -16,40 +16,40 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class CorredorPrueba {
+public class RunnerCompetition {
 	
 	@Embeddable
 	@Getter
 	@Setter
-	public static class IdCorredorPrueba implements Serializable {
+	public static class IdRunnerCompetition implements Serializable {
 
 		private static final long serialVersionUID = 817540279106537232L;
 
-		@Column(name = "fk_corredor")
-		private Integer idCorredor;
+		@Column(name = "fk_runner")
+		private Integer idRunner;
 
-		@Column(name = "fk_prueba")
-		private Integer idPrueba;
+		@Column(name = "fk_competition")
+		private Integer idCompetition;
 
-		public IdCorredorPrueba() {}
+		public IdRunnerCompetition() {}
 		
-		public IdCorredorPrueba(Integer idCorredor, Integer idPrueba) {
-			this.idCorredor = idCorredor;
-			this.idPrueba = idPrueba;
+		public IdRunnerCompetition(Integer idRunner, Integer idCompetition) {
+			this.idRunner = idRunner;
+			this.idCompetition = idCompetition;
 		}
 	}
 	
 	@EmbeddedId
-	private IdCorredorPrueba idCorredorPrueba;
+	private IdRunnerCompetition idRunnerCompetition;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "fk_corredor")
-	private Corredor corredor;
+	@JoinColumn(name = "fk_runner")
+	private Runner runner;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "fk_prueba")
-	private Prueba prueba;
+	@JoinColumn(name = "fk_competition")
+	private Competition competition;
 	
-	private Integer segundos;
+	private Integer seconds;
 	
 }

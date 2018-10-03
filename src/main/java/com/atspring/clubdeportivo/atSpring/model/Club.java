@@ -22,11 +22,11 @@ public class Club {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer idClub;
 	
-	private Long puntuacion;
+	private Long score;
 	
-	private String nombre;
+	private String name;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy="club")
-	private List<Corredor> corredores = new ArrayList<>();
+	private List<Runner> runners = new ArrayList<>();
 
 }

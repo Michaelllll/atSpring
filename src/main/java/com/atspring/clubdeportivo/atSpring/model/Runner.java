@@ -20,18 +20,19 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Corredor {
+public class Runner {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer idCorredor;
+	private Integer idRunner;
 	
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date fechaNacimiento;
+	private Date birthDate;
 	
-	private String nombre;
+	private String name;
 	
-	private Integer dorsal;
+	/** Dorsal **/
+	private Integer number;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	private Club club;
@@ -40,7 +41,7 @@ public class Corredor {
 	 * Un corredor participa en una serie de pruebas y obtiene en cada
 	 * una de ellas un resultado (puntuación)*/
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy="corredor")
-	private List<CorredorPrueba> pruebas = new ArrayList<>();
+	@OneToMany(fetch = FetchType.LAZY, mappedBy="runner")
+	private List<RunnerCompetition> pruebas = new ArrayList<>();
 
 }
