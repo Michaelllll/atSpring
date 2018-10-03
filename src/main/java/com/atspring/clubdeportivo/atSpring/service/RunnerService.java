@@ -1,6 +1,7 @@
 package com.atspring.clubdeportivo.atSpring.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.atspring.clubdeportivo.atSpring.model.Runner;
 
@@ -12,7 +13,7 @@ public interface RunnerService {
 	
 	void delete (Integer idRunner);
 	
-	Runner findById (Integer idRunner);
+	Optional<Runner> findById (Integer idRunner);
 	
 	List<Runner> findAll();
 
