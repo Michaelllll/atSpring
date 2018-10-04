@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 import com.atspring.clubdeportivo.atSpring.model.Club;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.Data;
 
@@ -16,6 +17,7 @@ public class RunnerDTO implements Serializable{
 	
 	private String name;
 	
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date birthDate;
 	
 	private Integer number;
