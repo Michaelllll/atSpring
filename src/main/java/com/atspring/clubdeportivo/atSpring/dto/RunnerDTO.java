@@ -1,5 +1,6 @@
 package com.atspring.clubdeportivo.atSpring.dto;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import com.atspring.clubdeportivo.atSpring.model.Club;
@@ -7,8 +8,10 @@ import com.atspring.clubdeportivo.atSpring.model.Club;
 import lombok.Data;
 
 @Data
-public class RunnerDTO {
+public class RunnerDTO implements Serializable{
 	
+	private static final long serialVersionUID = 1L;
+
 	private Integer idRunner;
 	
 	private String name;
