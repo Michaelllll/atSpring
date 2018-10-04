@@ -64,7 +64,7 @@ public class RunnerController {
 			throw new Exception("El id no existe o no coincide con el corredor.");
 	}
 	
-	@PostMapping("/{id}")
+	@PostMapping
 	public RunnerDTO create (@RequestBody RunnerDTO dto)
 	{
 		final Runner runner = runnerService.create(mapper.mapToModel(dto));
