@@ -14,13 +14,23 @@ public class RunnerMapperImpl implements RunnerMapper{
 		final Runner runner = new Runner();
 		runner.setName(dto.getName());
 		runner.setNumber(dto.getNumber());
+		runner.setBirthDate(dto.getBirthDate());
 		return runner;
 	}
 
 	public RunnerDTO mapToDTO(Optional<Runner> runner) {
-		RunnerDTO dto = new RunnerDTO();
+		final RunnerDTO dto = new RunnerDTO();
 		dto.setName(runner.get().getName());
 		dto.setNumber(runner.get().getNumber());
+		dto.setBirthDate(runner.get().getBirthDate());
+		return dto;
+	}
+
+	public RunnerDTO mapToDTO(Runner runner) {
+		final RunnerDTO dto = new RunnerDTO();
+		dto.setName(runner.getName());
+		dto.setNumber(runner.getNumber());
+		dto.setBirthDate(runner.getBirthDate());
 		return dto;
 	}
 
