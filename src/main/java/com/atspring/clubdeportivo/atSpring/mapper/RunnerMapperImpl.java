@@ -1,6 +1,8 @@
 package com.atspring.clubdeportivo.atSpring.mapper;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Component;
 
@@ -35,6 +37,11 @@ public class RunnerMapperImpl implements RunnerMapper{
 		dto.setBirthDate(runner.getBirthDate());
 		dto.setClub(runner.getClub());
 		return dto;
+	}
+
+	@Override
+	public List<RunnerDTO> mapToDTO(List<Runner> runners) {
+		return runners.parallelStream().map(this::mapToDTO).collect(Collectors.toList());
 	}
 
 }

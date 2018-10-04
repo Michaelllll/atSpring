@@ -1,5 +1,6 @@
 package com.atspring.clubdeportivo.atSpring.controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,8 +31,15 @@ public class RunnerController {
 	@GetMapping("/{id}")
 	public RunnerDTO findRunnerById (@PathVariable Integer id)
 	{
-		Optional<Runner> runner = runnerService.findById(id);
+		final Optional<Runner> runner = runnerService.findById(id);
 		return mapper.mapToDTO(runner);
+	}
+	
+	@GetMapping()
+	public List<RunnerDTO> findAll()
+	{
+		final List<Runner> runners = runnerService.findAll();
+		return mapper.mapToDTO(runners);
 	}
 	
 	@DeleteMapping("/{id}")
@@ -45,7 +53,7 @@ public class RunnerController {
 	{
 		if(id==dto.getIdRunner() && id!=null)
 		{
-			Optional<Runner> runner = runnerService.findById(id);
+			final Optional<Runner> runner = runnerService.findById(id);
 			runner.get().setName(dto.getName());
 			runner.get().setBirthDate(dto.getBirthDate());
 			runner.get().setNumber(dto.getNumber());
@@ -59,7 +67,7 @@ public class RunnerController {
 	@PostMapping("/{id}")
 	public RunnerDTO create (@RequestBody RunnerDTO dto)
 	{
-		Runner runner = runnerService.create(mapper.mapToModel(dto));
+		final Runner runner = runnerService.create(mapper.mapToModel(dto));
 		return mapper.mapToDTO(runner);
 	}
 }
