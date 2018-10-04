@@ -15,6 +15,7 @@ public class RunnerMapperImpl implements RunnerMapper{
 		runner.setName(dto.getName());
 		runner.setNumber(dto.getNumber());
 		runner.setBirthDate(dto.getBirthDate());
+		runner.setClub(dto.getClub());
 		return runner;
 	}
 
@@ -23,6 +24,7 @@ public class RunnerMapperImpl implements RunnerMapper{
 		dto.setName(runner.get().getName());
 		dto.setNumber(runner.get().getNumber());
 		dto.setBirthDate(runner.get().getBirthDate());
+		dto.setClub(runner.get().getClub());
 		return dto;
 	}
 
@@ -31,6 +33,7 @@ public class RunnerMapperImpl implements RunnerMapper{
 		dto.setName(runner.getName());
 		dto.setNumber(runner.getNumber());
 		dto.setBirthDate(runner.getBirthDate());
+		dto.setClub(runner.getClub());
 		return dto;
 	}
 
