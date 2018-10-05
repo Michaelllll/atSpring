@@ -14,34 +14,30 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import lombok.Getter;
-import lombok.Setter;
-
 @Entity
-@Getter
-@Setter
 public class Runner {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer idRunner;
-	
+
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date birthDate;
-	
+
 	private String name;
-	
+
 	/** Dorsal **/
 	private Integer number;
-	
+
 	@ManyToOne(fetch = FetchType.LAZY)
 	private Club club;
-	
+
 	/**
-	 * Un corredor participa en una serie de pruebas y obtiene en cada
-	 * una de ellas un resultado (puntuación)*/
-	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy="runner")
+	 * Un corredor participa en una serie de pruebas y obtiene en cada una de ellas
+	 * un resultado (puntuación)
+	 */
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "runner")
 	private List<RunnerCompetition> pruebas = new ArrayList<>();
 
 	public Integer getIdRunner() {
@@ -91,7 +87,7 @@ public class Runner {
 	public void setPruebas(List<RunnerCompetition> pruebas) {
 		this.pruebas = pruebas;
 	}
-	
-	
 
+	
+	
 }
