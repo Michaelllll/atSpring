@@ -1,9 +1,7 @@
 package com.atspring.clubdeportivo.atSpring.dto;
 
 import java.io.Serializable;
-import java.util.Date;
 
-import com.atspring.clubdeportivo.atSpring.model.Club;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class RunnerDTO implements Serializable{
