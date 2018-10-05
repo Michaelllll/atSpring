@@ -8,7 +8,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.Data;
 
-@Data
 public class RunnerDTO implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
@@ -20,22 +19,12 @@ public class RunnerDTO implements Serializable{
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date birthDate;
 	
-	private Club club;
-
 	public Date getBirthDate() {
 		return birthDate;
 	}
 
 	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
-	}
-
-	public Club getClub() {
-		return club;
-	}
-
-	public void setClub(Club club) {
-		this.club = club;
 	}
 
 	public Integer getIdRunner() {
