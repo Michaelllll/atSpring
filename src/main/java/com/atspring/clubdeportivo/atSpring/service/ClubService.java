@@ -4,6 +4,6 @@ import com.atspring.clubdeportivo.atSpring.model.Club;
 
 public interface ClubService {
 
-	public Club create(Club club);
+	Club create(Club club);
 
 }
