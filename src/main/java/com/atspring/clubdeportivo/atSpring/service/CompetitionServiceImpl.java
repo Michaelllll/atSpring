@@ -1,5 +1,7 @@
 package com.atspring.clubdeportivo.atSpring.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +16,11 @@ public class CompetitionServiceImpl implements CompetitionService {
 
 	public Competition create(Competition competition) {
 		return dao.save(competition);
+	}
+	
+	public Optional<Competition> findById (Integer idCompetition)
+	{
+		return dao.findById(idCompetition);
 	}
 
 }

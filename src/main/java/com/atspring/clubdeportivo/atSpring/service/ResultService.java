@@ -7,7 +7,7 @@ import com.atspring.clubdeportivo.atSpring.model.Result;
 
 public interface ResultService {
 
-	Result create(Result result);
+	Result create(Result result, Integer idRunner, Integer idCompetition);
 
 	Optional<Result> findById(Integer idResult);
 

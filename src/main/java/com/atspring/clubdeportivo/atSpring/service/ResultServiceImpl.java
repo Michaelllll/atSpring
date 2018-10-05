@@ -15,7 +15,15 @@ public class ResultServiceImpl implements ResultService{
 	@Autowired
 	private ResultDAO dao;
 	
-	public Result create(Result result) {
+	@Autowired
+	private RunnerService runnerService; 
+	
+	@Autowired
+	private CompetitionService competitionService; 
+	
+	public Result create(Result result, Integer idRunner, Integer idCompetition) {
+		result.setRunner(runnerService.findById(idRunner).get());
+		result.setCompetition(competitionService.findById(idCompetition).get());
 		return dao.save(result);
 	}
 

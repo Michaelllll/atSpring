@@ -43,7 +43,7 @@ public class ResultController {
 	@PostMapping
 	public ResultDTO create (@RequestBody ResultDTO dto)
 	{
-		final Result result = resultService.create(mapper.mapToModel(dto));
+		final Result result = resultService.create(mapper.mapToModel(dto),dto.getIdRunner(),dto.getIdCompetition());
 		return mapper.mapToDTO(result);
 	}
 

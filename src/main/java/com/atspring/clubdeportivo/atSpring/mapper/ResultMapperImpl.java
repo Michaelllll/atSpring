@@ -4,18 +4,13 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.atspring.clubdeportivo.atSpring.dto.ResultDTO;
 import com.atspring.clubdeportivo.atSpring.model.Result;
-import com.atspring.clubdeportivo.atSpring.service.RunnerService;
 
 @Component
 public class ResultMapperImpl implements ResultMapper{
-
-	@Autowired
-	private RunnerService runnerService;
 	
 	public ResultDTO mapToDTO(Result result)
 	{
@@ -40,7 +35,6 @@ public class ResultMapperImpl implements ResultMapper{
 		final Result result = new Result();
 		result.setidResult(dto.getIdResult());
 		result.setSeconds(dto.getSeconds());
-		//result.setRunner(runnerService.findById(dto.getIdRunner()).get());
 		return result;
 	}
 

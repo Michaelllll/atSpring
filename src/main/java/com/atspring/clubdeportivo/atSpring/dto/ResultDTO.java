@@ -11,6 +11,17 @@ public class ResultDTO implements Serializable {
 	private Integer seconds;
 	
 	private Integer idRunner;
+	
+	private Integer idCompetition;
+
+	
+	public Integer getIdCompetition() {
+		return idCompetition;
+	}
+
+	public void setIdCompetition(Integer idCompetition) {
+		this.idCompetition = idCompetition;
+	}
 
 	public Integer getIdResult() {
 		return idResult;
