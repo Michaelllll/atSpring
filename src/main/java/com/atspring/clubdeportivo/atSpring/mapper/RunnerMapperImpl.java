@@ -33,7 +33,6 @@ public class RunnerMapperImpl implements RunnerMapper{
 		return dto;
 	}
 
-	@Override
 	public List<RunnerDTO> mapToDTO(List<Runner> runners) {
 		return runners.parallelStream().map(this::mapToDTO).collect(Collectors.toList());
 	}
