@@ -26,7 +26,7 @@ public class Competition {
 	private Date date;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy="competition")
-	private List<RunnerCompetition> runners = new ArrayList<>();
+	private List<Result> results = new ArrayList<>();
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy="competition")
 	private List<Score> scores = new ArrayList<>();
@@ -55,12 +55,13 @@ public class Competition {
 		this.date = date;
 	}
 
-	public List<RunnerCompetition> getRunners() {
-		return runners;
+
+	public List<Result> getResults() {
+		return results;
 	}
 
-	public void setRunners(List<RunnerCompetition> runners) {
-		this.runners = runners;
+	public void setResults(List<Result> results) {
+		this.results = results;
 	}
 
 	public List<Score> getScores() {

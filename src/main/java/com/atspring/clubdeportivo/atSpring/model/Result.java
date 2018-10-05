@@ -14,7 +14,7 @@ import javax.validation.constraints.NotNull;
 
 @Table(indexes = {@Index(columnList="fk_runner,fk_competition", unique=true)})
 @Entity
-public class RunnerCompetition {
+public class Result {
 	
 	@Id
 	@NotNull

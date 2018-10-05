@@ -33,7 +33,7 @@ public class Runner {
 	 * Un corredor participa en una serie de pruebas y obtiene en cada una de ellas un resultado (puntuación)
 	 */
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "runner")
-	private List<RunnerCompetition> pruebas = new ArrayList<>();
+	private List<Result> results = new ArrayList<>();
 
 	public Integer getIdRunner() {
 		return idRunner;
@@ -67,14 +67,12 @@ public class Runner {
 		this.club = club;
 	}
 
-	public List<RunnerCompetition> getPruebas() {
-		return pruebas;
+	public List<Result> getResults() {
+		return results;
 	}
 
-	public void setPruebas(List<RunnerCompetition> pruebas) {
-		this.pruebas = pruebas;
+	public void setResults(List<Result> results) {
+		this.results = results;
 	}
-
-	
 	
 }
