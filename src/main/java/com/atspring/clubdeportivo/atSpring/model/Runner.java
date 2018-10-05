@@ -21,8 +21,7 @@ public class Runner {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer idRunner;
 
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date birthDate;
+	private String birthYear;
 
 	private String name;
 
@@ -43,12 +42,12 @@ public class Runner {
 		this.idRunner = idRunner;
 	}
 
-	public Date getBirthDate() {
-		return birthDate;
+	public String getBirthYear() {
+		return birthYear;
 	}
 
-	public void setBirthDate(Date birthDate) {
-		this.birthDate = birthDate;
+	public void setBirthYear(String birthYear) {
+		this.birthYear = birthYear;
 	}
 
 	public String getName() {

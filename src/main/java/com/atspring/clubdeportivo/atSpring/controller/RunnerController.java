@@ -55,7 +55,7 @@ public class RunnerController {
 		{
 			final Optional<Runner> runner = runnerService.findById(id);
 			runner.get().setName(dto.getName());
-			runner.get().setBirthDate(dto.getBirthDate());
+			runner.get().setBirthYear(dto.getYear());
 			runnerService.update(runner.get());
 		}
 		else

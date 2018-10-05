@@ -6,8 +6,6 @@ import java.util.Date;
 import com.atspring.clubdeportivo.atSpring.model.Club;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-import lombok.Data;
-
 public class RunnerDTO implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
@@ -16,15 +14,15 @@ public class RunnerDTO implements Serializable{
 	
 	private String name;
 	
-	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-	private Date birthDate;
-	
-	public Date getBirthDate() {
-		return birthDate;
+	@JsonFormat(pattern = "yyyy")
+	private String year;
+
+	public String getYear() {
+		return year;
 	}
 
-	public void setBirthDate(Date birthDate) {
-		this.birthDate = birthDate;
+	public void setYear(String year) {
+		this.year = year;
 	}
 
 	public Integer getIdRunner() {

@@ -15,21 +15,21 @@ public class RunnerMapperImpl implements RunnerMapper{
 	public Runner mapToModel(RunnerDTO dto) {
 		final Runner runner = new Runner();
 		runner.setName(dto.getName());
-		runner.setBirthDate(dto.getBirthDate());
+		runner.setBirthYear(dto.getYear());
 		return runner;
 	}
 
 	public RunnerDTO mapToDTO(Optional<Runner> runner) {
 		final RunnerDTO dto = new RunnerDTO();
 		dto.setName(runner.get().getName());
-		dto.setBirthDate(runner.get().getBirthDate());
+		dto.setYear(runner.get().getBirthYear());
 		return dto;
 	}
 
 	public RunnerDTO mapToDTO(Runner runner) {
 		final RunnerDTO dto = new RunnerDTO();
 		dto.setName(runner.getName());
-		dto.setBirthDate(runner.getBirthDate());
+		dto.setYear(runner.getBirthYear());
 		return dto;
 	}
 
