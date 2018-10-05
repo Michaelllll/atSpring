@@ -19,7 +19,7 @@ public class Result {
 	@Id
 	@NotNull
 	@GeneratedValue(strategy = GenerationType.AUTO )
-	private Integer idRunnerCompetition;
+	private Integer idResult;
 	
 	private Integer seconds;
 
@@ -33,12 +33,12 @@ public class Result {
 	@JoinColumn(name = "fk_competition")
 	private Competition competition;
 
-	public Integer getIdRunnerCompetition() {
-		return idRunnerCompetition;
+	public Integer getidResult() {
+		return idResult;
 	}
 
-	public void setIdRunnerCompetition(Integer idRunnerCompetition) {
-		this.idRunnerCompetition = idRunnerCompetition;
+	public void setidResult(Integer idResult) {
+		this.idResult = idResult;
 	}
 
 	public Integer getSeconds() {
