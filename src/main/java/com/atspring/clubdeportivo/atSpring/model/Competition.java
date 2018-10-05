@@ -13,9 +13,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import lombok.Getter;
-import lombok.Setter;
-
 @Entity
 public class Competition {
 	
@@ -33,5 +30,45 @@ public class Competition {
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy="competition")
 	private List<Score> scores = new ArrayList<>();
+
+	public Integer getIdCompetition() {
+		return idCompetition;
+	}
+
+	public void setIdCompetition(Integer idCompetition) {
+		this.idCompetition = idCompetition;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public List<RunnerCompetition> getRunners() {
+		return runners;
+	}
+
+	public void setRunners(List<RunnerCompetition> runners) {
+		this.runners = runners;
+	}
+
+	public List<Score> getScores() {
+		return scores;
+	}
+
+	public void setScores(List<Score> scores) {
+		this.scores = scores;
+	}
 
 }

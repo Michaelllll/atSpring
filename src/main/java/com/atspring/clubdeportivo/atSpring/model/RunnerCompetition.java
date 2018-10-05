@@ -11,8 +11,6 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 
-import lombok.Getter;
-import lombok.Setter;
 
 @Table(uniqueConstraints = @UniqueConstraint(columnNames={"fk_runner","fk_competition"}))
 @Entity
@@ -34,5 +32,38 @@ public class RunnerCompetition {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "fk_competition")
 	private Competition competition;
+
+	public Integer getIdRunnerCompetition() {
+		return idRunnerCompetition;
+	}
+
+	public void setIdRunnerCompetition(Integer idRunnerCompetition) {
+		this.idRunnerCompetition = idRunnerCompetition;
+	}
+
+	public Integer getSeconds() {
+		return seconds;
+	}
+
+	public void setSeconds(Integer seconds) {
+		this.seconds = seconds;
+	}
+
+	public Runner getRunner() {
+		return runner;
+	}
+
+	public void setRunner(Runner runner) {
+		this.runner = runner;
+	}
+
+	public Competition getCompetition() {
+		return competition;
+	}
+
+	public void setCompetition(Competition competition) {
+		this.competition = competition;
+	}
+	
 	
 }

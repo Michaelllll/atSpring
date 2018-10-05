@@ -10,8 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-import lombok.Getter;
-import lombok.Setter;
 
 @Entity
 public class Club {
@@ -24,5 +22,29 @@ public class Club {
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy="club")
 	private List<Runner> runners = new ArrayList<>();
+
+	public Integer getIdClub() {
+		return idClub;
+	}
+
+	public void setIdClub(Integer idClub) {
+		this.idClub = idClub;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public List<Runner> getRunners() {
+		return runners;
+	}
+
+	public void setRunners(List<Runner> runners) {
+		this.runners = runners;
+	}
 
 }
