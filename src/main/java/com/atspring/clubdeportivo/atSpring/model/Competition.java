@@ -17,8 +17,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Getter
-@Setter
 public class Competition {
 	
 	@Id
@@ -27,12 +25,13 @@ public class Competition {
 	
 	private String name;
 	
-	private double distance;
-	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date date;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy="competition")
 	private List<RunnerCompetition> runners = new ArrayList<>();
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy="competition")
+	private List<Score> scores = new ArrayList<>();
 
 }

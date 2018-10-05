@@ -20,8 +20,6 @@ public class RunnerDTO implements Serializable{
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date birthDate;
 	
-	private Integer number;
-	
 	private Club club;
 
 	public Date getBirthDate() {
@@ -54,14 +52,6 @@ public class RunnerDTO implements Serializable{
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public Integer getNumber() {
-		return number;
-	}
-
-	public void setNumber(Integer number) {
-		this.number = number;
 	}
 
 }

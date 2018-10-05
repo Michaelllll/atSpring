@@ -9,30 +9,22 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
-import javax.validation.constraints.NotNull;
 
-import lombok.Getter;
-import lombok.Setter;
 
-@Table(uniqueConstraints = @UniqueConstraint(columnNames={"fk_runner","fk_competition"}))
+@Table(uniqueConstraints = @UniqueConstraint(columnNames={"fk_competition","position"}))
 @Entity
-public class RunnerCompetition {
+public class Score {
 	
 	@Id
-	@NotNull
-	@GeneratedValue(strategy = GenerationType.AUTO )
-	private Integer idRunnerCompetition;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer idScore;
 	
-	private Integer seconds;
-
-	@NotNull
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "fk_runner")
-	private Runner runner;
+	private Long points;
 	
-	@NotNull
+	private Integer position;
+	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "fk_competition")
 	private Competition competition;
-	
+
 }

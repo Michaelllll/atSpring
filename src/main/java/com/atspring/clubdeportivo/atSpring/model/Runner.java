@@ -26,17 +26,12 @@ public class Runner {
 
 	private String name;
 
-	/** Dorsal **/
-	private Integer number;
-
 	@ManyToOne(fetch = FetchType.LAZY)
 	private Club club;
 
 	/**
-	 * Un corredor participa en una serie de pruebas y obtiene en cada una de ellas
-	 * un resultado (puntuación)
+	 * Un corredor participa en una serie de pruebas y obtiene en cada una de ellas un resultado (puntuación)
 	 */
-
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "runner")
 	private List<RunnerCompetition> pruebas = new ArrayList<>();
 
@@ -62,14 +57,6 @@ public class Runner {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public Integer getNumber() {
-		return number;
-	}
-
-	public void setNumber(Integer number) {
-		this.number = number;
 	}
 
 	public Club getClub() {
