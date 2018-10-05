@@ -5,14 +5,14 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Index;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 
 
-@Table(uniqueConstraints = @UniqueConstraint(columnNames={"fk_runner","fk_competition"}))
+@Table(indexes = {@Index(columnList="fk_runner,fk_competition", unique=true)})
 @Entity
 public class RunnerCompetition {
 	
