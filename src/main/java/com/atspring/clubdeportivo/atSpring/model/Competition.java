@@ -60,8 +60,8 @@ public class Competition {
 		return results;
 	}
 
-	public void setResults(List<Result> results) {
-		this.results = results;
+	public void setResult(Result result) {
+		results.add(result);
 	}
 
 	public List<Score> getScores() {

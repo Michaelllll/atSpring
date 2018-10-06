@@ -24,7 +24,10 @@ public class ResultServiceImpl implements ResultService{
 	public Result create(Result result, Integer idRunner, Integer idCompetition) {
 		result.setRunner(runnerService.findById(idRunner).get());
 		result.setCompetition(competitionService.findById(idCompetition).get());
-		return dao.save(result);
+		dao.save(result);
+		runnerService.findById(idRunner).get().setResult(result);
+		competitionService.findById(idCompetition).get().setResult(result);
+		return result;
 	}
 
 	public Optional<Result> findById(Integer idResult) {

@@ -67,8 +67,8 @@ public class Runner {
 		return results;
 	}
 
-	public void setResults(List<Result> results) {
-		this.results = results;
+	public void setResult(Result result) {
+		results.add(result);
 	}
 	
 }
