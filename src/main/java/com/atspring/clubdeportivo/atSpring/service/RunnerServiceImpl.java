@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.atspring.clubdeportivo.atSpring.dao.RunnerDAO;
-import com.atspring.clubdeportivo.atSpring.model.Club;
 import com.atspring.clubdeportivo.atSpring.model.Runner;
 
 @Service
