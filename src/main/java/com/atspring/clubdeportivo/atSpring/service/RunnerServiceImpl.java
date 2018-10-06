@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.atspring.clubdeportivo.atSpring.dao.RunnerDAO;
+import com.atspring.clubdeportivo.atSpring.model.Club;
 import com.atspring.clubdeportivo.atSpring.model.Runner;
 
 @Service
@@ -14,6 +15,9 @@ public class RunnerServiceImpl implements RunnerService {
 
 	@Autowired
 	RunnerDAO dao;
+	
+	@Autowired
+	ClubService clubService;
 
 	public Runner create(Runner runner) {
 		return dao.save(runner);
@@ -33,6 +37,13 @@ public class RunnerServiceImpl implements RunnerService {
 
 	public List<Runner> findAll() {
 		return dao.findAll();
+	}
+	
+	public void addClub(Integer idRunner, Integer idClub)
+	{
+		Runner runner = dao.findById(idRunner).get();
+		runner.setClub(clubService.findById(idClub));
+		dao.saveAndFlush(runner);
 	}
 
 }

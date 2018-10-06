@@ -43,8 +43,9 @@ public class Club {
 		return runners;
 	}
 
-	public void setRunners(List<Runner> runners) {
-		this.runners = runners;
+	public void setRunner(Runner runner) {
+		System.out.println("Se ha añadido el corredor: "+runner.getName()+" al club "+this.getName());
+		runners.add(runner);
 	}
 
 }

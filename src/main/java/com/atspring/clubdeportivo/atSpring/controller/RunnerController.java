@@ -21,51 +21,49 @@ import com.atspring.clubdeportivo.atSpring.service.RunnerService;
 @RestController
 @RequestMapping("/runner")
 public class RunnerController {
-	
+
 	@Autowired
 	RunnerService runnerService;
-	
+
 	@Autowired
 	RunnerMapper mapper;
 
 	@GetMapping("/{id}")
-	public RunnerDTO findRunnerById (@PathVariable Integer id)
-	{
+	public RunnerDTO findRunnerById(@PathVariable Integer id) {
 		final Optional<Runner> runner = runnerService.findById(id);
 		return mapper.mapToDTO(runner);
 	}
-	
+
 	@GetMapping()
-	public List<RunnerDTO> findAll()
-	{
+	public List<RunnerDTO> findAll() {
 		final List<Runner> runners = runnerService.findAll();
 		return mapper.mapToDTO(runners);
 	}
-	
+
 	@DeleteMapping("/{id}")
-	public void delete (@PathVariable Integer id)
-	{
+	public void delete(@PathVariable Integer id) {
 		runnerService.delete(id);
 	}
-	
+
 	@PutMapping("/{id}")
-	public void update (@RequestBody RunnerDTO dto, @PathVariable Integer id) throws Exception
-	{
-		if(id==dto.getIdRunner() && id!=null)
-		{
+	public void update(@RequestBody RunnerDTO dto, @PathVariable Integer id) throws Exception {
+		if (id == dto.getIdRunner() && id != null) {
 			final Optional<Runner> runner = runnerService.findById(id);
 			runner.get().setName(dto.getName());
 			runner.get().setBirthYear(dto.getYear());
 			runnerService.update(runner.get());
-		}
-		else
+		} else
 			throw new Exception("El id no existe o no coincide con el corredor.");
 	}
-	
+
 	@PostMapping
-	public RunnerDTO create (@RequestBody RunnerDTO dto)
-	{
+	public RunnerDTO create(@RequestBody RunnerDTO dto) {
 		final Runner runner = runnerService.create(mapper.mapToModel(dto));
 		return mapper.mapToDTO(runner);
+	}
+
+	@PutMapping("/{idRunner}/club/{idClub}")
+	public void update(@PathVariable Integer idRunner, @PathVariable Integer idClub) {
+		runnerService.addClub(idRunner, idClub);
 	}
 }

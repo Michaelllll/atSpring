@@ -1,7 +1,9 @@
 package com.atspring.clubdeportivo.atSpring.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,6 +26,12 @@ public class ClubController {
 	public ClubDTO create(@RequestBody ClubDTO dto)
 	{
 		return mapper.mapToDTO(clubService.create(mapper.mapToModel(dto)));
+	}
+	
+	@PutMapping("/{idClub}/runner/{idRunner}")
+	public void update(@PathVariable Integer idClub, @PathVariable Integer idRunner)
+	{
+		clubService.addRunner(idClub, idRunner);
 	}
 
 }

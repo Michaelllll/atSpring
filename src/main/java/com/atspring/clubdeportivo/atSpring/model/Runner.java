@@ -68,6 +68,7 @@ public class Runner {
 	}
 
 	public void setResult(Result result) {
+		System.out.println("Se ha añadido el resultado: "+result.getidResult()+" al corredor "+this.getName());
 		results.add(result);
 	}
 	

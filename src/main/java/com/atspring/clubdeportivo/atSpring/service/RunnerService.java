@@ -16,5 +16,7 @@ public interface RunnerService {
 	Optional<Runner> findById (Integer idRunner);
 	
 	List<Runner> findAll();
+	
+	void addClub(Integer idRunner, Integer idClub);
 
 }
