@@ -15,12 +15,7 @@ public class ScoreServiceImpl implements ScoreService {
 	private ScoreDAO dao;
 
 	public List<ScoreDTO> findAll(Integer idCompetition) {
-		System.out.println("IDCOMPETITION en findAll: "+idCompetition);
 		List<ScoreDTO> scores = dao.findAllScores(idCompetition);
-		for(ScoreDTO score : scores)
-		{
-			System.out.println("Putuacion: "+score.getPoints()+" Posicion: "+score.getPosition());
-		}
 		return scores;
 	}
 
