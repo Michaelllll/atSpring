@@ -7,5 +7,5 @@ import com.atspring.clubdeportivo.atSpring.model.Result;
 
 @Repository
 public interface ResultDAO extends JpaRepository<Result, Integer>{
-
+	
 }
