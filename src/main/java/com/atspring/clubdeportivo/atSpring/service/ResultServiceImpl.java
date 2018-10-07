@@ -4,6 +4,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
@@ -143,7 +144,9 @@ public class ResultServiceImpl implements ResultService {
 		System.out.println("--------------Mas de 40 anos--------------");
 		showByCategories(resultsMaster40, idCompetition);
 		
-		return resultsMaster20;
+		return Stream.of(resultsMaster20,resultsMaster30,resultsMaster40)
+				.flatMap(Collection::stream)
+				.collect(Collectors.toList());
 	}
 	
 	public void showByCategories(List<ResultDTO> results, Integer idCompetition)
