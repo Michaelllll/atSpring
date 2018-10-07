@@ -1,5 +1,6 @@
 package com.atspring.clubdeportivo.atSpring.controller;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,7 +17,6 @@ import com.atspring.clubdeportivo.atSpring.dto.ResultDTO;
 import com.atspring.clubdeportivo.atSpring.mapper.ResultMapper;
 import com.atspring.clubdeportivo.atSpring.model.Result;
 import com.atspring.clubdeportivo.atSpring.service.ResultService;
-
 @RestController
 @RequestMapping("/result")
 public class ResultController {
@@ -38,6 +39,18 @@ public class ResultController {
 	{
 		final List<Result> results = resultService.findAll();
 		return mapper.mapToDTO(results);
+	}
+
+	@PutMapping("/file") 
+	public void write() throws IOException
+	{
+		resultService.writeToFile(new Integer(0)); //Para la Prueba(Competition) 0 en este caso.
+	}
+	
+	@PutMapping("/age") 
+	public void resultByAge()
+	{ 
+		resultService.getResultsByAge(new Integer(0)); //Para la Prueba(Competition) 0 en este caso.
 	}
 	
 	@PostMapping

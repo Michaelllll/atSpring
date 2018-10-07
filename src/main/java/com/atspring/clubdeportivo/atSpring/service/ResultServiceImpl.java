@@ -75,7 +75,7 @@ public class ResultServiceImpl implements ResultService {
 		{
 			if(!scores.isEmpty())
 			{
-				System.out.println("El club "+result.getClub().getIdClub()+ " ha obtenido "+scores.get(0).getPoints()+" puntos");
+				System.out.println("El club "+result.getClub().getIdClub()+ " ha obtenido "+scores.get(0).getPoints()+" puntos gracias al corredor"+result.getIdRunner());
 				Long existeEntrada = clubYPuntos.get(result.getClub().getIdClub());
 				
 				if(existeEntrada == null)
@@ -136,14 +136,14 @@ public class ResultServiceImpl implements ResultService {
 		//Más de 40 anos
 		List<ResultDTO> resultsMaster40 = dao.getResultsByAgeGreaterThan(idCompetition, master40);
 		System.out.println("PUNTUACIONES POR CATEGORIA");
-		System.out.println("--------------Entre 20 y 30--------------");
+		System.out.println("--------------Entre 20 y 30 anos--------------");
 		showByCategories(resultsMaster20, idCompetition);
-		System.out.println("--------------Entre 30 y 40--------------");
+		System.out.println("--------------Entre 30 y 40 anos--------------");
 		showByCategories(resultsMaster30, idCompetition);
-		System.out.println("--------------Mas de 40--------------");
+		System.out.println("--------------Mas de 40 anos--------------");
 		showByCategories(resultsMaster40, idCompetition);
 		
-		return resultsMaster40;
+		return resultsMaster20;
 	}
 	
 	public void showByCategories(List<ResultDTO> results, Integer idCompetition)
