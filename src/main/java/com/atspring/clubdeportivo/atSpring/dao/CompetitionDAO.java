@@ -7,5 +7,5 @@ import com.atspring.clubdeportivo.atSpring.model.Competition;
 
 @Repository
 public interface CompetitionDAO extends JpaRepository<Competition, Integer>{
-
+	
 }

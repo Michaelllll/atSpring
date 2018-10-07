@@ -2,9 +2,9 @@ package com.atspring.clubdeportivo.atSpring.service;
 
 import java.util.List;
 
-import com.atspring.clubdeportivo.atSpring.model.Score;
+import com.atspring.clubdeportivo.atSpring.dto.ScoreDTO;
 
 public interface ScoreService {
-
-	List<Score> findAll();
+	
+	List<ScoreDTO> findAll(Integer idCompetition);
 }
