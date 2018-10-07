@@ -5,5 +5,8 @@ Aplicación de gestión de competiciones, donde intervienen corredores que parti
 
 # Rutas más relevantes
 
-- **localhost:8080/result/file** a través del método PUT (este método se ha elegido solo y exclusivamente para realizar pruebas y porque la lógica de la funcionalidad no devuelve ningún tipo, en un entorno de producción habría que cambiar el método).
-Dicha ruta genera un fichero txt en el directorio raiz del proyecto con nombre: *clasificacion.txt*
+Aclaración: las dos primeras rutas se asocian al método PUT para realizar única y exclusivamente pruebas, en un entorno de producción haría falta sustituir dicho método.
+
+- **localhost:8080/result/file** a través del método PUT. Dicha ruta genera un fichero txt en el directorio raiz del proyecto con nombre: *clasificacion.txt* El fichero generado a partir de un algortimo contendrá todos los clubes que han participado en una competición junto con sus correspondintes puntuaciones.
+
+- **localhost:8080/result/age** a través del método PUT. La ruta genera un listado por consola con todos los participantes de una competición divididos en las tres categorías y ordenados por puntuación.
