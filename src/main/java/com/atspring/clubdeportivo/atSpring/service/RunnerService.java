@@ -3,6 +3,8 @@ package com.atspring.clubdeportivo.atSpring.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.data.domain.Pageable;
+
 import com.atspring.clubdeportivo.atSpring.model.Runner;
 
 public interface RunnerService {
@@ -15,7 +17,7 @@ public interface RunnerService {
 	
 	Optional<Runner> findById (Integer idRunner);
 	
-	List<Runner> findAll();
+	List<Runner> findAll(Pageable pagination, String name);
 	
 	void addClub(Integer idRunner, Integer idClub);
 

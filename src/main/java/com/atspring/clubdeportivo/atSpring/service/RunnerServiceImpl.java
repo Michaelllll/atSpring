@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.atspring.clubdeportivo.atSpring.dao.RunnerDAO;
@@ -34,8 +35,8 @@ public class RunnerServiceImpl implements RunnerService {
 		return dao.findById(idRunner);
 	}
 
-	public List<Runner> findAll() {
-		return dao.findAll();
+	public List<Runner> findAll(Pageable pagination, String name) {
+		return dao.findByNameContaining(pagination,name).getContent();
 	}
 	
 	public void addClub(Integer idRunner, Integer idClub)
