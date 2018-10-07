@@ -4,8 +4,8 @@ Curso formación en Spring, septiembre 2018
 Aplicación de gestión de competiciones, donde intervienen corredores que participan en dichas competiciones y obtienen resultados. Los corredores pertenecen a un club y las competiciones se dividirán en tres categorías: master20, master30 y master40.
 
 # Parámetros relevantes
- Nombre de BD: atspring
- Puerto de la aplicación: 8080
+ - Nombre de BD: atspring
+ - Puerto de la aplicación: 8080
  
 # Rutas más relevantes
 
