@@ -21,6 +21,7 @@ public class RunnerMapperImpl implements RunnerMapper{
 
 	public RunnerDTO mapToDTO(Optional<Runner> runner) {
 		final RunnerDTO dto = new RunnerDTO();
+		dto.setIdRunner(runner.get().getIdRunner());
 		dto.setName(runner.get().getName());
 		dto.setYear(runner.get().getBirthYear());
 		return dto;
@@ -28,6 +29,7 @@ public class RunnerMapperImpl implements RunnerMapper{
 
 	public RunnerDTO mapToDTO(Runner runner) {
 		final RunnerDTO dto = new RunnerDTO();
+		dto.setIdRunner(runner.getIdRunner());
 		dto.setName(runner.getName());
 		dto.setYear(runner.getBirthYear());
 		return dto;
