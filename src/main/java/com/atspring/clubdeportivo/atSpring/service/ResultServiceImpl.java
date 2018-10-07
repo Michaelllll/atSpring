@@ -126,7 +126,7 @@ public class ResultServiceImpl implements ResultService {
 		String master30End = String.valueOf((Integer.parseInt(currentYear) - 31));
 		String master30Start = String.valueOf((Integer.parseInt(currentYear) - 40));
 		String master40 = String.valueOf((Integer.parseInt(currentYear) - 41));
-
+		
 		//Entre 20 y 30 años
 		List<ResultDTO> resultsMaster20 =  dao.getResultsByAge(idCompetition, master20Start, master20End);
 		
@@ -135,24 +135,31 @@ public class ResultServiceImpl implements ResultService {
 		
 		//Más de 40 anos
 		List<ResultDTO> resultsMaster40 = dao.getResultsByAgeGreaterThan(idCompetition, master40);
+		System.out.println("PUNTUACIONES POR CATEGORIA");
+		System.out.println("--------------Entre 20 y 30--------------");
+		showByCategories(resultsMaster20, idCompetition);
+		System.out.println("--------------Entre 30 y 40--------------");
+		showByCategories(resultsMaster30, idCompetition);
+		System.out.println("--------------Mas de 40--------------");
+		showByCategories(resultsMaster40, idCompetition);
 		
-		System.out.println("Entre 20 y 30");
-		for(ResultDTO result : resultsMaster20)
-		{
-			System.out.println("+Segundos: "+result.getSeconds()+" Nombre: "+result.getNameRunner()+" Ano nacimiento: "+result.getYearRunner());
-		}
-		
-		System.out.println("Entre 30 y 40");
-		for(ResultDTO result : resultsMaster30)
-		{
-			System.out.println("++Segundos: "+result.getSeconds()+" Nombre: "+result.getNameRunner()+" Ano nacimiento: "+result.getYearRunner());
-		}
-		
-		System.out.println("Mas de 40");
-		for(ResultDTO result : resultsMaster40)
-		{
-			System.out.println("+++Segundos: "+result.getSeconds()+" Nombre: "+result.getNameRunner()+" Ano nacimiento: "+result.getYearRunner());
-		}
 		return resultsMaster40;
+	}
+	
+	public void showByCategories(List<ResultDTO> results, Integer idCompetition)
+	{
+		List<ScoreDTO> scores = this.getScores(idCompetition);
+		
+		for(ResultDTO result : results)
+		{
+			if(!scores.isEmpty())
+			{
+				System.out.println("+Puntuacion: "+scores.get(0).getPoints()+" Nombre: "+result.getNameRunner()+" ANacimiento: "+result.getYearRunner()+" Segundos: "+result.getSeconds());
+				scores.remove(0);
+			}
+			else
+				System.out.println("+Puntuacion: - Nombre: "+result.getNameRunner()+" ANacimiento: "+result.getYearRunner()+" Segundos: "+result.getSeconds());
+			
+		}
 	}
 }
