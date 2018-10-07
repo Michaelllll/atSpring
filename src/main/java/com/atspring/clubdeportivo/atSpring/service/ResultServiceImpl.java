@@ -3,7 +3,9 @@ package com.atspring.clubdeportivo.atSpring.service;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -113,5 +115,44 @@ public class ResultServiceImpl implements ResultService {
 		 finally { 
 			 bw.close();
 		 }
+	}
+
+
+	public List<ResultDTO> getResultsByAge(Integer idCompetition) {
+		
+		String currentYear = new SimpleDateFormat("yyyy").format(new Date());
+		String master20End = String.valueOf((Integer.parseInt(currentYear) - 20)); 
+		String master20Start = String.valueOf((Integer.parseInt(currentYear) - 30));
+		String master30End = String.valueOf((Integer.parseInt(currentYear) - 31));
+		String master30Start = String.valueOf((Integer.parseInt(currentYear) - 40));
+		String master40 = String.valueOf((Integer.parseInt(currentYear) - 41));
+
+		//Entre 20 y 30 años
+		List<ResultDTO> resultsMaster20 =  dao.getResultsByAge(idCompetition, master20Start, master20End);
+		
+		//Entre 30 y 40 años
+		List<ResultDTO> resultsMaster30 =  dao.getResultsByAge(idCompetition, master30Start, master30End);
+		
+		//Más de 40 anos
+		List<ResultDTO> resultsMaster40 = dao.getResultsByAgeGreaterThan(idCompetition, master40);
+		
+		System.out.println("Entre 20 y 30");
+		for(ResultDTO result : resultsMaster20)
+		{
+			System.out.println("+Segundos: "+result.getSeconds()+" Nombre: "+result.getNameRunner()+" Ano nacimiento: "+result.getYearRunner());
+		}
+		
+		System.out.println("Entre 30 y 40");
+		for(ResultDTO result : resultsMaster30)
+		{
+			System.out.println("++Segundos: "+result.getSeconds()+" Nombre: "+result.getNameRunner()+" Ano nacimiento: "+result.getYearRunner());
+		}
+		
+		System.out.println("Mas de 40");
+		for(ResultDTO result : resultsMaster40)
+		{
+			System.out.println("+++Segundos: "+result.getSeconds()+" Nombre: "+result.getNameRunner()+" Ano nacimiento: "+result.getYearRunner());
+		}
+		return resultsMaster40;
 	}
 }

@@ -19,4 +19,21 @@ public interface ResultDAO extends JpaRepository<Result, Integer>{
 			+ "group by r.idResult "
 			+ "order by r.seconds ")
 	public List<ResultDTO> getResults(Integer idCompetition);
+	
+	@Query("SELECT new com.atspring.clubdeportivo.atSpring.dto.ResultDTO(r.seconds, r.runner.name, e.birthYear) "
+			+ "from Result r "
+			+ "INNER JOIN r.runner e "
+			+ "where r.competition.idCompetition = :idCompetition AND "
+			+ " e.birthYear BETWEEN :yearStart AND :yearEnd "
+			+ "group by r.idResult "
+			+ "order by r.seconds ")
+	public List<ResultDTO> getResultsByAge(Integer idCompetition, String yearStart, String yearEnd);
+	
+	@Query("SELECT new com.atspring.clubdeportivo.atSpring.dto.ResultDTO(r.seconds, r.runner.name, e.birthYear) "
+			+ "from Result r "
+			+ "INNER JOIN r.runner e "
+			+ "where r.competition.idCompetition = :idCompetition AND e.birthYear < :year "
+			+ "group by r.idResult "
+			+ "order by r.seconds ")
+	public List<ResultDTO> getResultsByAgeGreaterThan(Integer idCompetition, String year);
 }

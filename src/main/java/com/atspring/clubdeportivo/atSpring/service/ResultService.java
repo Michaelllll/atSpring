@@ -53,4 +53,6 @@ public interface ResultService {
 	 * @throws IOException
 	 */
 	void writeToFile(Integer idCompetition) throws IOException;
+	
+	public List<ResultDTO> getResultsByAge(Integer idCompetition);
 }

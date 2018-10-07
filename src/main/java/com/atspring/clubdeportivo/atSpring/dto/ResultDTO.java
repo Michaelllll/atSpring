@@ -17,6 +17,10 @@ public class ResultDTO implements Serializable {
 	private Integer idCompetition;
 	
 	private Club club;
+	
+	private String nameRunner;
+	
+	private String yearRunner;
 
 	public ResultDTO(Integer idResult, Integer seconds, Integer idRunner, Club club) {
 		super();
@@ -25,8 +29,31 @@ public class ResultDTO implements Serializable {
 		this.idRunner = idRunner;
 		this.club = club;
 	}
-
+	
+	public ResultDTO(Integer seconds, String name, String year)
+	{
+		this.seconds = seconds;
+		nameRunner = name;
+		yearRunner = year;
+	}
+	
 	public ResultDTO() {
+	}
+
+	public String getNameRunner() {
+		return nameRunner;
+	}
+
+	public void setNameRunner(String nameRunner) {
+		this.nameRunner = nameRunner;
+	}
+
+	public String getYearRunner() {
+		return yearRunner;
+	}
+
+	public void setYearRunner(String yearRunner) {
+		this.yearRunner = yearRunner;
 	}
 
 	public Club getClub() {
