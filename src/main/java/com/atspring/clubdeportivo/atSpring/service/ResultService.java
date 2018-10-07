@@ -54,5 +54,10 @@ public interface ResultService {
 	 */
 	void writeToFile(Integer idCompetition) throws IOException;
 	
+	/**
+	 * Obtiene una clasificación por categorías (Máster 20, Máster 30 y Máster 40).
+	 * @param idCompetition identificador de la competición.
+	 * @return lista de resultados que están dentro de las categorías.
+	 */
 	public List<ResultDTO> getResultsByAge(Integer idCompetition);
 }
