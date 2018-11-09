@@ -32,9 +32,9 @@ public class ClubServiceTest {
 
 	@Test
 	public void testCreateClub() {
-        Club clubBD = new Club();
+        final Club clubBD = new Club();
         clubBD.setIdClub(1);
-        Club clubInicial = new Club();
+        final Club clubInicial = new Club();
         clubInicial.setName("Club");
 
         when(daoMockClub.save(Mockito.any(Club.class))).thenReturn(clubBD);
